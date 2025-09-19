@@ -1,28 +1,173 @@
 # ClaseAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.7.
+🔵 Parte 1 – Tipado de variables
 
-## Development server
+Explicación:
+•	El tipado sirve para decir qué tipo de dato debe tener una variable.
+•	Esto evita errores como sumar un número con un texto.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+@Component({
+  selector: 'app-root',
+  template: `
+    <h1>Clase 2: TypeScript en Angular</h1>
+    <p>Nombre: {{ nombre }}</p>
+    <p>Edad: {{ edad }}</p>
+    <p>Activo: {{ activo ? 'Sí' : 'No' }}</p>
+  `
+})
+export class AppComponent {
+  nombre: string = 'Ana';
+  edad: number = 25;
+  activo: boolean = true;
+}
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+•	“Si cambio edad a un texto, TypeScript me dará error incluso antes de ejecutar.”
+•	“Eso nos da seguridad."
 
-## Build
+________________________________________
+🔵 Parte 2 – Interfaces
+Explicación:
+•	Una interfaz es como un contrato.
+•	Define cómo debe lucir un objeto.
+•	Si falta algo o hay un tipo distinto, TypeScript avisa.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+interface Usuario {
+  nombre: string;
+  edad: number;
+  activo: boolean;
+}
 
-## Running unit tests
+@Component({
+  selector: 'app-root',
+  template: `
+    <h2>Usuario</h2>
+    <p>{{ usuario.nombre }} ({{ usuario.edad }} años) - Activo: {{ usuario.activo }}</p>
+  `
+})
+export class AppComponent {
+  usuario: Usuario = {
+    nombre: 'Carlos',
+    edad: 30,
+    activo: true
+  };
+}
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+•	“Las interfaces ayudan a que nuestros objetos sean consistentes.”
+•	“En Angular se usan mucho para tipar datos de una API.”
 
-## Running end-to-end tests
+________________________________________
+🔵 Parte 3 – Clases y objetos
+Explicación:
+•	Una clase es un molde para crear objetos.
+•	Sirve para organizar código y aplicar POO (Programación Orientada a Objetos).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+class Persona {
+  constructor(public nombre: string, public edad: number) {}
 
-## Further help
+  presentarse(): string {
+    return `Hola, soy ${this.nombre} y tengo ${this.edad} años.`;
+  }
+}
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# Clase2-TypeScript
+@Component({
+  selector: 'app-root',
+  template: `
+    <h2>Persona</h2>
+    <p>{{ persona.presentarse() }}</p>
+  `
+})
+export class AppComponent {
+  persona = new Persona('María', 22);
+}
+
+
+•	“Una clase tiene atributos y métodos.”
+•	“Podemos crear varias personas con el mismo molde.”
+
+________________________________________
+🔵 Parte 4 – Arrow functions
+Explicación:
+•	Son funciones más cortas y modernas.
+•	No cambian el contexto de this.
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <h2>Arrow Function</h2>
+    <p>5 + 3 = {{ sumar(5,3) }}</p>
+  `
+})
+export class AppComponent {
+  sumar = (a: number, b: number): number => a + b;
+}
+
+
+•	“Noten que es más compacta que una función normal.”
+•	“Son muy usadas en Angular, sobre todo en observables.”
+
+________________________________________
+🔵 Parte 5 – Funciones asíncronas
+Explicación inicial:
+•	En programación, a veces algo tarda (ejemplo: pedir datos a un servidor).
+•	Si no usamos funciones asíncronas, la aplicación se queda congelada.
+•	Con async/await o promesas, podemos esperar sin bloquear la app.
+
+👉 Analogía:
+•	“Imaginen que piden una pizza. No esperan en la cocina con los brazos cruzados, siguen haciendo cosas.
+•	Cuando la pizza llega, reciben la notificación. Eso es asincronía.”
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <h2>Async Function</h2>
+    <p>{{ mensaje }}</p>
+    <button (click)="cargarDatos()">Cargar datos</button>
+  `
+})
+export class AppComponent {
+  mensaje: string = 'Esperando...';
+
+  async cargarDatos() {
+    this.mensaje = await this.obtenerDatos();
+  }
+
+  obtenerDatos(): Promise<string> {
+    return new Promise(resolve => {
+      setTimeout(() => resolve('Datos cargados correctamente ✅'), 2000);
+    });
+  }
+}
+
+•	“El botón simula pedir datos al servidor.”
+•	“Esperamos 2 segundos y recibimos la respuesta.”
+
+________________________________________
+🔵 Parte 6 – Decoradores
+Explicación:
+•	Son funciones especiales que agregan metadatos a clases o métodos.
+•	Angular usa decoradores para todo: @Component, @Injectable, @NgModule.
+
+function log(constructor: Function) {
+  console.log('Clase creada:', constructor.name);
+}
+
+@log
+class Demo {
+  constructor() {}
+}
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <h2>Decoradores</h2>
+    <p>Revisa la consola para ver el decorador en acción</p>
+  `
+})
+export class AppComponent {
+  demo = new Demo();
+}
+
+
+•	“Decorador = etiqueta que modifica el comportamiento de una clase.”
+•	“Por ejemplo, @Component le dice a Angular que esta clase es un componente.”
