@@ -1,8 +1,23 @@
+<!--*ngIf  -->
+<p *ngIf="usuario">Hola, {{ usuario }}</p>
+<p *ngIf="!usuario">No hay usuario registrado</p>
 
-<button (click)="mostrar = !mostrar">
-  {{mostrar ? 'Ocultar' : 'Mostrar'}} Componente
-</button>
+<!--*ngFor  -->
+<ul>
+  <li *ngFor="let fruta of frutas">{{ fruta }}</li>
+</ul>
 
-<app-ciclo *ngIf="mostrar" [nombre]="usuario"></app-ciclo>
+<!--*ngSwitch  -->
+<div [ngSwitch]="color">
+  <p *ngSwitchCase="'rojo'">El color es rojo 🔴</p>
+  <p *ngSwitchCase="'azul'">El color es azul 🔵</p>
+  <p *ngSwitchDefault>Color no reconocido</p>
+</div>
 
-<input [(ngModel)]="usuario" placeholder="Escribe un nombre">
+<!--[ngStyle]  -->
+<p [ngStyle]="{ 'color': esActivo ? 'green' : 'red' }">
+  Estado: {{ esActivo ? 'Activo' : 'Inactivo' }}
+</p>
+
+<!--[ngClass]  -->
+<p [ngClass]="{ 'resaltado': esActivo1 }">Texto con estilo</p>

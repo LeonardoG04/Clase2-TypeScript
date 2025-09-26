@@ -53,3 +53,8 @@ app-ciclo {
   text-align: center;
   background: #f9f9f9;
 }
+
+.resaltado {
+  font-weight: bold;
+  color: blue;
+}
