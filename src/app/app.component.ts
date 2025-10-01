@@ -1,22 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
-export interface Tarea {
-  id: number;
-  titulo: string;
-  completada: boolean;
-}
-
-class GestorTareas {
-  private tareas: Tarea[] = [];
-
-  agregarTarea(tarea: Tarea) {
-    this.tareas.push(tarea);
-  }
-
-  listarTareas(): Tarea[] {
-    return this.tareas;
-  }
-}
+import { Component } from '@angular/core';
+import { UsuarioService } from './servicio/usuario/usuario.service';
 
 @Component({
   selector: 'app-root',
@@ -24,23 +7,14 @@ class GestorTareas {
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  lista: Tarea[] = [];
-  gestor = new GestorTareas();
 
-  ngOnInit(): void {
-    // Agregamos algunas tareas de prueba
-    this.gestor.agregarTarea({
-      id: 1,
-      titulo: 'Estudiar Angular',
-      completada: false,
-    });
-    this.gestor.agregarTarea({
-      id: 2,
-      titulo: 'Practicar TypeScript',
-      completada: true,
-    });
+  nombre = '';
+  usuario = '';
 
-    // Cargamos la lista
-    this.lista = this.gestor.listarTareas();
+  constructor(private usuarioService: UsuarioService){}
+
+  guardar(){
+    this.usuarioService.setUsuario(this.nombre);
+    this.usuario = this.usuarioService.getUsuario();
   }
 }

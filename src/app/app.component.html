@@ -1,8 +1,4 @@
-<h2>Lista de Tareas</h2>
-
-<ul>
-  <li *ngFor="let tarea of lista">
-    <input type="checkbox" [checked]="tarea.completada" disabled />
-    {{ tarea.titulo }}
-  </li>
-</ul>
+<h2>Gestor de Tareas con servicios</h2>
+<app-tarea-form></app-tarea-form>
+<hr>
+<app-tarea-list></app-tarea-list>

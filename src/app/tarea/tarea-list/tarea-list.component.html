@@ -1,0 +1,11 @@
+<h3>Lista de Tareas</h3>
+<table border="1" cellpadding="5">
+  <tr>
+    <th>ID</th>
+    <th>Titulo</th>
+  </tr>
+  <tr *ngFor="let tarea of tareas">
+    <td>{{tarea.id}}</td>
+    <td>{{tarea.titulo}}</td>
+  </tr>
+</table>

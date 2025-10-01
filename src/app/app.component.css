@@ -1,0 +1,60 @@
+/* Contenedor general */
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Botón */
+button {
+  background-color: #dd0031; /* Rojo Angular */
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #b20027;
+  transform: scale(1.05);
+}
+
+/* Input */
+input {
+  width: 250px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #1976d2; /* Azul Angular Material */
+  border-radius: 6px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+input:focus {
+  border-color: #42a5f5;
+  box-shadow: 0 0 8px rgba(25, 118, 210, 0.4);
+}
+
+/* Componente mostrado */
+app-ciclo {
+  margin: 20px 0;
+  display: block;
+  padding: 15px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.resaltado {
+  font-weight: bold;
+  color: blue;
+}
