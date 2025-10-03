@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { UsuarioService } from './servicio/usuario/usuario.service';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +7,7 @@ import { UsuarioService } from './servicio/usuario/usuario.service';
 })
 export class AppComponent {
 
-  nombre = '';
-  usuario = '';
 
-  constructor(private usuarioService: UsuarioService){}
+  constructor(){}
 
-  guardar(){
-    this.usuarioService.setUsuario(this.nombre);
-    this.usuario = this.usuarioService.getUsuario();
-  }
 }

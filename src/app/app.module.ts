@@ -4,14 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { TareaFormComponent } from './tarea/tarea-form/tarea-form.component';
-import { TareaListComponent } from './tarea/tarea-list/tarea-list.component';
+import { HomeComponent } from './prueba/home/home.component';
+import { AboutComponent } from './prueba/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TareaFormComponent,
-    TareaListComponent,
+    HomeComponent,
+    AboutComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
