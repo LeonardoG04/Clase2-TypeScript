@@ -4,23 +4,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { HomeComponent } from './prueba/home/home.component';
-import { AboutComponent } from './prueba/about/about.component';
-import { ContactComponent } from './components/contact/contact.component';
+import { UserComponent } from './component/user/user.component';
+import { UserDetailsComponent } from './component/user-details/user-details.component';
+import { UserSettingsComponent } from './component/user-settings/user-settings.component';
+import { HomeComponent } from './component/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    AboutComponent,
-    ContactComponent,
+    UserComponent,
+    UserDetailsComponent,
+    UserSettingsComponent,
+    HomeComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

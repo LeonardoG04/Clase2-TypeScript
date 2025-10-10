@@ -1,10 +1,12 @@
-<h1>Mi Aplicación de Angular</h1>
-<nav>
-  <a routerLink="/home">Inicio</a>
-  <br />
-  <a routerLink="/about">Usuario</a>
-  <br />
-  <a routerLink="/contact">Contactos</a>
+<header style="text-align: center; margin: 20px 0;">
+  <h1>Mi App - Demo Rutas (Clase 7)</h1>
+</header>
+
+<nav style="text-align: center; margin-bottom: 10px;">
+  <a routerLink="/home" routerLinkActive="active">Home</a> |
+
+  <a [routerLink]="['/user', 1]" routerLinkActive="active">Usuario 1</a> |
+  <a [routerLink]="['/user', 2]" routerLinkActive="active">Usuario 2</a>
 </nav>
 
 <router-outlet></router-outlet>

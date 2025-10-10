@@ -1,0 +1,14 @@
+<section>
+  <h2>Perfil de Usuario</h2>
+  <p><strong>Usuario ID: </strong> {{userId}}</p>
+
+  <nav>
+    <a routerLink="details" routerLinkActive="active">Detalles</a> |
+    <a routerLink="settings" routerLinkActive="active">Configuración</a> |
+    <button (click)="irAConfiguracion()">Ir a Configuración</button>
+  </nav>
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</section>
